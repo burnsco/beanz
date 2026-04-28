@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
 
 const beans = [
   {
@@ -169,13 +168,14 @@ const plans = [
 
       <div class="relative">
         <div class="aspect-[4/5] bg-[#D5CEA3] rounded-[2rem] overflow-hidden rotate-1 shadow-2xl relative">
-          <Image
+          <img
             src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=900&h=1125"
             alt="Freshly roasted coffee beans spilling from a roasting drum"
             width={900}
             height={1125}
             loading="eager"
             fetchpriority="high"
+            decoding="async"
             class="w-full h-full object-cover"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-[#3C2A21]/70 to-transparent"></div>
@@ -228,12 +228,13 @@ const plans = [
           {beans.map((bean, i) => (
             <article class="group bg-[#F5F0E8] border-2 border-[#3C2A21]/5 rounded-3xl overflow-hidden hover:border-[#E57C23] hover:-translate-y-1 transition-all duration-300">
               <div class="aspect-[4/5] overflow-hidden bg-[#D5CEA3]">
-                <Image
+                <img
                   src={bean.imgUrl}
                   alt={bean.imgAlt}
                   width={800}
                   height={900}
                   loading={i === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -268,7 +269,7 @@ const plans = [
           { src: 'https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&q=80&w=600&h=700', alt: 'Barista preparing a pour-over coffee',          w: 600, h: 700, cls: 'h-64 md:h-80' },
         ].map(({ src, alt, w, h, cls }) => (
           <div class={`${cls} rounded-2xl overflow-hidden bg-[#D5CEA3]`}>
-            <Image src={src} alt={alt} width={w} height={h} loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            <img src={src} alt={alt} width={w} height={h} loading="lazy" decoding="async" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
           </div>
         ))}
       </div>
@@ -403,18 +404,18 @@ const plans = [
         <div class="grid grid-cols-2 gap-4" aria-hidden="true">
           <div class="space-y-4">
             <div class="aspect-square bg-[#D5CEA3] rounded-2xl overflow-hidden">
-              <Image src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=500&h=500" alt="" width={500} height={500} loading="lazy" class="w-full h-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=500&h=500" alt="" width={500} height={500} loading="lazy" decoding="async" class="w-full h-full object-cover" />
             </div>
             <div class="aspect-[3/4] bg-[#D5CEA3] rounded-2xl overflow-hidden translate-x-4">
-              <Image src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&q=80&w=500&h=660" alt="" width={500} height={660} loading="lazy" class="w-full h-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&q=80&w=500&h=660" alt="" width={500} height={660} loading="lazy" decoding="async" class="w-full h-full object-cover" />
             </div>
           </div>
           <div class="space-y-4 pt-8">
             <div class="aspect-[3/4] bg-[#D5CEA3] rounded-2xl overflow-hidden -translate-x-4">
-              <Image src="https://images.unsplash.com/photo-1574226516831-e1dff420e562?auto=format&fit=crop&q=80&w=500&h=660" alt="" width={500} height={660} loading="lazy" class="w-full h-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1574226516831-e1dff420e562?auto=format&fit=crop&q=80&w=500&h=660" alt="" width={500} height={660} loading="lazy" decoding="async" class="w-full h-full object-cover" />
             </div>
             <div class="aspect-square bg-[#D5CEA3] rounded-2xl overflow-hidden">
-              <Image src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=500&h=500" alt="" width={500} height={500} loading="lazy" class="w-full h-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=500&h=500" alt="" width={500} height={500} loading="lazy" decoding="async" class="w-full h-full object-cover" />
             </div>
           </div>
         </div>
